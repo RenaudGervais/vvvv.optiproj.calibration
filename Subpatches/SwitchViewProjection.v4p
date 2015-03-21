@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\kimchiandchips\Workshops\VVVV.Tutorials.Mapping2-3D\Subpatches\SwitchViewProjection.v4p" systemname="DefaultViewProjection" filename="C:\kimchiandchips\Workshops\VVVV.Tutorials.Mapping2-3D\Subpatches\DefaultViewProjection.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\SwitchViewProjection.v4p" systemname="DefaultViewProjection" filename="C:\kimchiandchips\Workshops\VVVV.Tutorials.Mapping2-3D\Subpatches\DefaultViewProjection.v4p" scrollx="0" scrolly="360">
    <BOUNDS type="Window" left="9345" top="5370" width="7950" height="4440">
    </BOUNDS>
    <NODE componentmode="InABox" id="7" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -91,7 +91,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4710" top="1320" width="2505" height="1395">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|//select which ViewProjection to use for default projection position of points.&cr;&lf;If we&apos;ve begun calibrating succesfully, use that, else use camera ViewProjection from world preview.|" encoded="0">
+   <PIN pinname="Input String" visible="0" slicecount="1" encoded="0" values="|//select which ViewProjection to use for default projection position of points.&cr;&lf;If we&apos;ve begun calibrating succesfully, use that, else use camera ViewProjection from world preview.|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -107,17 +107,21 @@
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Boolean">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Switch" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Switch">
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Switch">
    </LINK>
+   <PACK Name="image" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>
