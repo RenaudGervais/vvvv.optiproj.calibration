@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\_CalibrateProjector (DX11) help.v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\calibrateBeta_291.v4p" locked="0" systemname="calibrateBeta_291" scrollx="0" scrolly="2520">
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\_CalibrateProjector (DX11) help.v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\calibrateBeta_291.v4p" locked="0" systemname="calibrateBeta_291" scrollx="0" scrolly="5040">
    <BOUNDS height="18120" left="3750" top="7230" type="Window" width="14250">
    </BOUNDS>
    <LINK dstnodeid="34" dstpinname="Y Input Value" srcnodeid="22" srcpinname="Mouse XYZ">
@@ -805,7 +805,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9825" top="90" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -815,7 +815,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="149" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Enabled">
@@ -910,8 +910,6 @@
    </LINK>
    <LINK srcnodeid="154" srcpinname="Up Edge" dstnodeid="153" dstpinname="Reset">
    </LINK>
-   <LINK srcnodeid="152" srcpinname="Up Edge" dstnodeid="151" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="155" systemname="IOBox (String)">
    <BOUNDS type="Node" left="11400" top="2040" width="3705" height="270">
    </BOUNDS>
@@ -931,7 +929,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1260" top="2010" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="3975" top="7395" width="9000" height="6000">
+   <BOUNDS type="Window" left="4905" top="735" width="9000" height="6000">
    </BOUNDS>
    <PIN pinname="Enabled" visible="1">
    </PIN>
@@ -943,7 +941,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1245" top="1305" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -955,6 +953,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
    </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="157" srcpinname="Y Output Value" dstnodeid="156" dstpinname="Enabled">
    </LINK>
@@ -963,13 +963,11 @@
    </BOUNDS>
    <PIN pinname="XYZ UnTransformed" visible="1" slicecount="20" values="0.07,0,0,0,0,0,0.07,0,0,0,-0.075,0,0,0,0,0,0,0.07,0,0">
    </PIN>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="XYZ Transformed" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="156" srcpinname="Rigid Body Transform" dstnodeid="158" dstpinname="Transform">
-   </LINK>
    <LINK srcnodeid="153" srcpinname="Output" dstnodeid="107" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="153" srcpinname="Output" dstnodeid="108" dstpinname="Input" linkstyle="VHV">
@@ -984,7 +982,7 @@
    <LINKPOINT x="9315" y="9555">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="SceneViewer" filename="Subpatches\SceneViewer.v4p" componentmode="InAWindow" id="159" nodename="Subpatches\SceneViewer.v4p">
+   <NODE systemname="SceneViewer" filename="Subpatches\SceneViewer.v4p" componentmode="Hidden" id="159" nodename="Subpatches\SceneViewer.v4p">
    <BOUNDS type="Node" left="15" top="9675" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="15" top="9675" width="4800" height="3600">
@@ -1113,5 +1111,55 @@
    </LINKPOINT>
    <LINKPOINT x="1470" y="14333">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="165">
+   <BOUNDS type="Node" left="6960" top="990" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="152" srcpinname="Up Edge" dstnodeid="165" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="166">
+   <BOUNDS type="Node" left="6645" top="660" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="167">
+   <BOUNDS type="Node" left="6645" top="1515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="166" srcpinname="Bang" dstnodeid="167" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="165" srcpinname="Output 1" dstnodeid="167" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="167" srcpinname="Output" dstnodeid="151" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Transform (Transform 3d)" nodename="Transform (Transform 3d)" componentmode="Hidden" id="168">
+   <BOUNDS type="Node" left="1275" top="2835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Yaw" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="TranslateY" slicecount="1" values="0.0025">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="156" srcpinname="Rigid Body Transform" dstnodeid="168" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="168" srcpinname="Transform Out" dstnodeid="158" dstpinname="Transform">
    </LINK>
    </PATCH>

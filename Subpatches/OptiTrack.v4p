@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\OptiTrack.v4p" systemname="OptiTrack" filename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\OptiTrack.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="3975" top="7395" width="9000" height="6000">
+   <BOUNDS type="Window" left="4905" top="735" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="image" Version="0.2.0">
    </PACK>
@@ -120,6 +120,8 @@
    <PIN pinname="List Item" visible="1">
    </PIN>
    <PIN pinname="Selected Index" visible="1">
+   </PIN>
+   <PIN pinname="Default Slice" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Rigid body name" dstnodeid="6" dstpinname="List Item">
