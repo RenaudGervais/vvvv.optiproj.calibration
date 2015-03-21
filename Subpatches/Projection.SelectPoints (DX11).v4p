@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="C:\Users\colors1\Desktop\ProjectorN_b29 (DX11)\Subpatches\Projection.SelectPoints (DX11).v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\Subpatches\Projection.SelectPoints (DX11).v4p" systemname="Projection.SelectPoints (DX11)">
-   <BOUNDS height="10665" left="6525" top="1170" type="Window" width="12030">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\Projection.SelectPoints (DX11).v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\Subpatches\Projection.SelectPoints (DX11).v4p" systemname="Projection.SelectPoints (DX11)" scrollx="0" scrolly="-360">
+   <BOUNDS height="10665" left="4410" top="2370" type="Window" width="12030">
    </BOUNDS>
    <NODE componentmode="InABox" id="0" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="10230" top="165" type="Node" width="100">
@@ -382,4 +382,8 @@
    </LINK>
    <LINK srcnodeid="115" srcpinname="Output" dstnodeid="82" dstpinname="Set">
    </LINK>
+   <PACK Name="image" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>

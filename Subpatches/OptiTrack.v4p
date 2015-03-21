@@ -1,0 +1,155 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\OptiTrack.v4p" systemname="OptiTrack" filename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\OptiTrack.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="3975" top="7395" width="9000" height="6000">
+   </BOUNDS>
+   <PACK Name="image" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Tracker (OptiTrack) (Devices)" filename="..\..\vvvv.nodes\plugins\DeviceOptiTrack\DeviceOptiTrack.csproj" nodename="Tracker (OptiTrack) (Devices)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1215" top="1500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Local" visible="1">
+   </PIN>
+   <PIN pinname="Server" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Connected" visible="1">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="QuaternionXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Rigid body name" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IP (Network)" nodename="IP (Network)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="705" top="585" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="IP" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetSlice (String)" nodename="GetSlice (String)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="1410" top="1050" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="IP" dstnodeid="2" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="0" dstpinname="Local" linkstyle="VHV">
+   <LINKPOINT x="1395" y="1403">
+   </LINKPOINT>
+   <LINKPOINT x="1275" y="1403">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="0" dstpinname="Server" linkstyle="VHV">
+   <LINKPOINT x="1470" y="1395">
+   </LINKPOINT>
+   <LINKPOINT x="1695" y="1395">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2700" top="765" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2700" top="765" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3180" top="1725" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3180" top="1725" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Connected">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Connected" dstnodeid="4" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="OptiTrack2vvvv (Transform)" filename="..\..\vvvv.nodes\modules\OptiTrack2vvvv\OptiTrack2vvvv (Transform).v4p" nodename="OptiTrack2vvvv (Transform)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="1605" top="2655" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="QuaternionXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Transform(vvvv)" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="PositionXYZ" dstnodeid="5" dstpinname="PositionXYZ">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="QuaternionXYZW" dstnodeid="5" dstpinname="QuaternionXYZW" linkstyle="VHV">
+   <LINKPOINT x="2025" y="2198">
+   </LINKPOINT>
+   <LINKPOINT x="2880" y="2198">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="DropDown (String)" filename="%VVVV%\addonpack\lib\nodes\plugins\DropDown (String).dll" nodename="DropDown (String)" componentmode="InABox" id="6">
+   <BOUNDS type="Node" left="1230" top="3345" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1230" top="3345" width="1500" height="495">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5175" top="10920" width="3240" height="2085">
+   </BOUNDS>
+   <PIN pinname="List Item" visible="1">
+   </PIN>
+   <PIN pinname="Selected Index" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Rigid body name" dstnodeid="6" dstpinname="List Item">
+   </LINK>
+   <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="1575" top="4410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Transform(vvvv)" dstnodeid="7" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Selected Index" dstnodeid="7" dstpinname="Index" linkstyle="VHV">
+   <LINKPOINT x="1290" y="4110">
+   </LINKPOINT>
+   <LINKPOINT x="2190" y="4110">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="9" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1590" top="4905" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1590" top="4905" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Rigid Body Transform|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output Node" dstnodeid="9" dstpinname="Input Node">
+   </LINK>
+   </PATCH>
