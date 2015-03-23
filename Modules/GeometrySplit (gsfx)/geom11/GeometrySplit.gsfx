@@ -1,0 +1,68 @@
+
+
+
+float4x4 tWV: WORLDVIEW ;
+float4x4 tWVP: WORLDVIEWPROJECTION ;
+
+
+float4x4 tTex <string uiname="Texture Transform";>;
+
+struct VS_IN
+{   
+	float3 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+
+};
+
+struct VS_OUTPUT
+{
+	float4 cpoint : SV_Position;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+};
+
+
+
+VS_OUTPUT VS(VS_IN input)
+{
+	//Here we simply passtrough the vertex data
+    VS_OUTPUT output;
+	
+    output.cpoint = float4(input.cpoint,1);
+	output.norm = input.norm;
+	output.TexCd = mul(input.TexCd,tTex);
+	
+    return output;
+}
+
+
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<VS_OUTPUT>GSOut)
+{
+	VS_OUTPUT v;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		//v.position=v.position;
+        //v.TexCd=v.TexCd;
+		//v.normV=v.normV;
+		GSOut.Append(v);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );
+
+technique11 MeshSplit
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}
