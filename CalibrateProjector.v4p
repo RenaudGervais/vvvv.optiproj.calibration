@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\_CalibrateProjector (DX11) help.v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\calibrateBeta_291.v4p" locked="0" systemname="calibrateBeta_291" scrollx="30" scrolly="-360">
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\CalibrateProjector.v4p" filename="C:\Users\colors1\Desktop\Dx11SandBox\Ported_DX11\ProjectorNode_29\calibrateBeta_291.v4p" locked="0" systemname="calibrateBeta_291" scrollx="30" scrolly="-360">
    <BOUNDS height="18120" left="2685" top="4620" type="Window" width="14250">
    </BOUNDS>
    <LINK dstnodeid="34" dstpinname="Y Input Value" srcnodeid="22" srcpinname="Mouse XYZ">
@@ -213,7 +213,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="8655" top="1800" width="480" height="480">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" values="0" visible="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -317,7 +317,7 @@
    </PIN>
    <PIN pinname="Select" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1" slicecount="20" values="0.07,0,0,0,0,0,0.07,0,0,0,-0.075,0,0,0,0,0,0,0.07,0,0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Select">
@@ -329,7 +329,7 @@
    </PIN>
    <PIN pinname="Select" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1" slicecount="20" values="0.07,0,0,0,0,0,0.07,0,0,0,-0.075,0,0,0,0,0,0,0.07,0,0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="105" srcpinname="Y Output Value" dstnodeid="108" dstpinname="Select">
@@ -843,7 +843,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1245" top="1305" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -855,7 +855,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="1">
+   <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="157" srcpinname="Y Output Value" dstnodeid="156" dstpinname="Enabled">
@@ -870,14 +870,6 @@
    <PIN pinname="XYZ Transformed" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="153" srcpinname="Output" dstnodeid="107" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="153" srcpinname="Output" dstnodeid="108" dstpinname="Input" linkstyle="VHV">
-   <LINKPOINT x="1335" y="9673">
-   </LINKPOINT>
-   <LINKPOINT x="3270" y="9873">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="SceneViewer" filename="Subpatches\SceneViewer.v4p" componentmode="Hidden" id="159" nodename="Subpatches\SceneViewer.v4p">
    <BOUNDS type="Node" left="15" top="9675" width="100" height="100">
    </BOUNDS>
@@ -1027,7 +1019,7 @@
    </PIN>
    </NODE>
    <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="167">
-   <BOUNDS type="Node" left="6945" top="1815" width="100" height="100">
+   <BOUNDS type="Node" left="6945" top="1815" width="450" height="270">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -1035,9 +1027,11 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input Count" slicecount="1" values="3">
+   <PIN pinname="Input Count" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Input 3" visible="1">
+   </PIN>
+   <PIN pinname="Input 4" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="166" srcpinname="Bang" dstnodeid="167" dstpinname="Input 1">
@@ -1233,6 +1227,8 @@
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="153" srcpinname="Output" dstnodeid="174" dstpinname="Input 2">
    </LINK>
@@ -1265,5 +1261,43 @@
    <LINK srcnodeid="176" srcpinname="OnChange" dstnodeid="175" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="175" srcpinname="Output" dstnodeid="111" dstpinname="Input 4">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="177" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10830" top="195" width="3195" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10830" top="195" width="3180" height="1020">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Space: Save the current points associations&cr;&lf;Backspace: Clear all data&cr;&lf;PgUp: Change selected point UP&cr;&lf;PgDown: Change selection DOWN|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="&lt;BACKSPACE&gt;" dstnodeid="167" dstpinname="Input 4" linkstyle="Bezier">
+   <LINKPOINT x="10245" y="1418">
+   </LINKPOINT>
+   <LINKPOINT x="7545" y="1418">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="178" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11445" top="2940" width="3195" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11445" top="2940" width="1230" height="1380">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Scroll down and push the write button to save the matrices to file.&cr;&lf;V|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="174" srcpinname="Output" dstnodeid="107" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="174" srcpinname="Output" dstnodeid="108" dstpinname="Input">
    </LINK>
    </PATCH>
