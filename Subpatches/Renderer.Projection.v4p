@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\Renderer.Projection.v4p" filename="C:\kimchiandchips\Workshops\VVVV.Tutorials.Mapping2-3D\Subpatches\Renderer.Projection.v4p" systemname="Renderer.Projection">
+   <PATCH nodename="C:\vvvv\projects\vvvv.optiproj.calibration\Subpatches\Renderer.Projection.v4p" filename="C:\kimchiandchips\Workshops\VVVV.Tutorials.Mapping2-3D\Subpatches\Renderer.Projection.v4p" systemname="Renderer.Projection" scrollx="0" scrolly="0">
    <BOUNDS height="10860" left="6015" top="2115" type="Window" width="10950">
    </BOUNDS>
    <NODE componentmode="Hidden" id="6" nodename="Vector (2d Join)" systemname="Vector (2d Join)">
@@ -191,6 +191,10 @@
    </PIN>
    <PIN pinname="Show Cursor" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="MouseState (System Split Legacy)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseState (System Split)" componentmode="Hidden" id="30">
    <BOUNDS type="Node" left="1320" top="2715" width="100" height="100">
@@ -209,10 +213,6 @@
    <LINK srcnodeid="30" srcpinname="X" dstnodeid="6" dstpinname="X">
    </LINK>
    <LINK srcnodeid="30" srcpinname="Y" dstnodeid="6" dstpinname="Y">
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="29" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Output Node" dstnodeid="29" dstpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="31" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="1530" top="150" width="0" height="0">
@@ -262,4 +262,24 @@
    </PACK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
+   <NODE nodename="S (Node)" id="36" systemname="S (Node)">
+   <BOUNDS type="Node" left="3330" top="2790" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|Mouse State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Mouse State" dstnodeid="36" dstpinname="Input Value">
+   </LINK>
+   <NODE nodename="S (Node)" id="37" systemname="S (Node)">
+   <BOUNDS type="Node" left="4815" top="2775" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|Keyboard State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Keyboard State" dstnodeid="37" dstpinname="Input Value">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Output Node" dstnodeid="29" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="29" dstpinname="View">
+   </LINK>
    </PATCH>
